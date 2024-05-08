@@ -4,6 +4,7 @@ use yew::prelude::*;
 use yew_agent::{Bridge, Bridged};
 
 use crate::{User, services::websocket::WebsocketService};
+use crate::services::event_bus::EventBus;
 
 pub enum Msg {
     HandleMsg(String),
@@ -45,6 +46,7 @@ pub struct Chat {
     messages: Vec<MessageData>,
     _producer: Box<dyn Bridge<EventBus>>,
 }
+
 impl Component for Chat {
     type Message = Msg;
     type Properties = ();
@@ -95,7 +97,7 @@ impl Component for Chat {
                                     "https://avatars.dicebear.com/api/adventurer-neutral/{}.svg",
                                     u
                                 )
-                                .into(),
+                                    .into(),
                             })
                             .collect();
                         return true;

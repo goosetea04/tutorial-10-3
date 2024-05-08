@@ -4,7 +4,6 @@ use wasm_bindgen::prelude::*;
 use yew::functional::*;
 use yew::prelude::*;
 use yew_router::prelude::*;
-
 // When the `wee_alloc` feature is enabled, this uses `wee_alloc` as the global
 // allocator.
 //
@@ -14,8 +13,10 @@ use yew_router::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 mod components;
+mod services;
 use components::login::Login;
 use components::chat::Chat;
+use std::cell::RefCell;
 use std::rc::Rc;
 
 pub type User = Rc<UserInner>;
